@@ -147,3 +147,20 @@ const smallTrim = [3.6, 3.6, 5.6, 5.6, 1.6, 1.6, 1.6, 1.6, 5.6, 5.6, 5.6, 5.6, 4
 // console.log(findTrim(smallTrim))
 // console.log(smallTrim.length)
 
+function lengthOfLongestSubstring(s) {
+    if (s.length === 0) {return 0}
+    let acc = 0
+
+    for (let i = 0; i < s.length; i++) {
+        for (let j = s.length; j > i; j--) {
+            const subset = new Set(s.slice(i, j));
+            if (subset.size === j-i && j-i >= acc) {
+                acc = j-i
+                console.log(subset)
+            }
+        }
+    }
+    return acc
+};
+
+console.log(lengthOfLongestSubstring("au"))
